@@ -1,0 +1,12 @@
+package Model;
+
+import java.time.LocalDate;
+
+public class Canal {
+
+	int idCanal;
+	String titulo;
+	LocalDate fechaCreacion;
+	Usuario idUsuario;
+	
+}

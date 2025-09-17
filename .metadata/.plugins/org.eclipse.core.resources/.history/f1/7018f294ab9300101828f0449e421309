@@ -1,0 +1,52 @@
+package Model;
+
+import java.time.LocalDate;
+
+public class Canal {
+
+	private int idCanal;
+	private String titulo;
+	private LocalDate fechaCreacion;
+	private Usuario idUsuario;
+
+	public Canal(int idCanal, String titulo, LocalDate fechaCreacion, Usuario idUsuario) {
+		super();
+		this.idCanal = idCanal;
+		this.titulo = titulo;
+		this.fechaCreacion = fechaCreacion;
+		this.idUsuario = idUsuario;
+	}
+
+	public int getIdCanal() {
+		return idCanal;
+	}
+
+	public void setIdCanal(int idCanal) {
+		this.idCanal = idCanal;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Usuario getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Usuario idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+}

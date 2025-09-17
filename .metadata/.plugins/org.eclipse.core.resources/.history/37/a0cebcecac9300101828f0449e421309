@@ -1,0 +1,77 @@
+package Model;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+public class Canal {
+
+	private int idCanal;
+	private String titulo;
+	private LocalDate fechaCreacion;
+	private Usuario idUsuario;
+
+	public Canal(int idCanal, String titulo, LocalDate fechaCreacion, Usuario idUsuario) {
+		super();
+		this.idCanal = idCanal;
+		this.titulo = titulo;
+		this.fechaCreacion = fechaCreacion;
+		this.idUsuario = idUsuario;
+	}
+
+	public int getIdCanal() {
+		return idCanal;
+	}
+
+	public void setIdCanal(int idCanal) {
+		this.idCanal = idCanal;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Usuario getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Usuario idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(fechaCreacion, idCanal, idUsuario, titulo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Canal other = (Canal) obj;
+		return Objects.equals(fechaCreacion, other.fechaCreacion) && idCanal == other.idCanal
+				&& Objects.equals(idUsuario, other.idUsuario) && Objects.equals(titulo, other.titulo);
+	}
+
+	@Override
+	public String toString() {
+		return "Canal [idCanal=" + idCanal + ", titulo=" + titulo + ", fechaCreacion=" + fechaCreacion + ", idUsuario="
+				+ idUsuario + "]";
+	}
+
+}

@@ -1,0 +1,13 @@
+package Model;
+
+import java.time.LocalDate;
+
+public class Retransmision {
+
+	int idRetransmision;
+	Canal idCanal;
+	String titulo;
+	LocalDate fecha_inicio;
+	double duracion;
+	
+}
