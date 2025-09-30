@@ -2,7 +2,7 @@ package repaso.model;
 
 import java.util.Objects;
 
-public class Editorial {
+public class Editorial implements Comparable<Editorial>{
 
 	private String nombre;
 	private String direccion;
@@ -80,6 +80,15 @@ public class Editorial {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public int compareTo(Editorial o) {
+		int cmp = this.nombre.compareToIgnoreCase(o.nombre);
+		if (cmp == 0) {
+			cmp = this.cif.compareToIgnoreCase(o.cif);
+		}
+		return cmp;
 	}
 
 	

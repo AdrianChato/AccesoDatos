@@ -3,7 +3,7 @@ package repaso.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Libro {
+public class Libro{
 
 	private String isbn;
 	private String titulo;
