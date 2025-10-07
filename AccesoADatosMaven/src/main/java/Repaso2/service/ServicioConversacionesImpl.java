@@ -5,19 +5,28 @@ import java.time.LocalDate;
 import Repaso2.exceptions.ConversacionException;
 import Repaso2.model.Conversacion;
 import Repaso2.model.TipoAgente;
+import Repaso2.repository.RepositorioConversaciones;
 
 public class ServicioConversacionesImpl implements IServicioConversaciones{
 
+	RepositorioConversaciones repo= new RepositorioConversaciones();
+	
 	@Override
 	public void registraNuevaConveracion(TipoAgente tipo, String pregunta, String respuesta) {
-		// TODO Auto-generated method stub
+		repo.agregaConversacion(tipo, pregunta, respuesta);
 		
 	}
 
 	@Override
 	public Conversacion getRecuperaConversacion(TipoAgente tipo, String pregunta, LocalDate fecha) {
-		// TODO Auto-generated method stub
-		return null;
+		Conversacion c = new Conversacion();	
+		try {
+			c = repo.getConversacion(fecha, tipo, pregunta);
+		} catch (ConversacionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return c;
 	}
 
 	@Override
