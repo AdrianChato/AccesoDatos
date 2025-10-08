@@ -29,8 +29,26 @@ public class FileNuevo {
 	System.out.println(archivos2);
 	for (String fichero : archivos) {
 		logger.info(fichero);
+		
+	}
+	FileNuevo a = new FileNuevo();
+	a.getPropiedadesRecursivas(directorio);
 	}
 	
+	public void getPropiedadesRecursivas (File padre) {
+		String rutaDirectorio = "C:\\Users\\alumno\\Desktop\\";
+		boolean existe = padre.exists();
+		File [] listaficheros = padre.listFiles();
+		if (existe) {
+		for (File f2 : listaficheros) {
+			if (f2.isFile()) {
+				logger.info(f2.getName());
+			} else {
+				this.getPropiedadesRecursivas(f2);
+			} 
+		}
+	} else {
+		logger.info("No existe");
 	}
-
+	}
 }
