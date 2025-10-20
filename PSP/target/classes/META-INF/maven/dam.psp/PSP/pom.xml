@@ -3,4 +3,11 @@
   <groupId>dam.psp</groupId>
   <artifactId>PSP</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  <dependency>
+  	<groupId>dam.accesoadatos</groupId>
+  	<artifactId>AccesoADatosMaven</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  </dependencies>
 </project>

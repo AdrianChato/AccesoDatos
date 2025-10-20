@@ -7,15 +7,16 @@ public class LanzadorEjemplo {
 	public static void main(String[] args) {
 		
 		LanzadorEjemplo lanzador = new LanzadorEjemplo();
-		lanzador.ejecutaProcesoCompila();
+		lanzador.ejecutaProcesoCompila(rutaSource,directorioGenerarClasses);
 		lanzador.ejecutaProcesoJava();
+		
 	}
 	
 	private static final String directorioGenerarClasses = "C:\\Users\\alumno\\Desktop\\Spring\\PSP\\target";
-	private static final String rutaSource = "C:\\Users\\alumno\\Desktop\\Spring\\PSP\\src\\main\\java";
+	private static final String rutaSource = "C:\\Users\\alumno\\Desktop\\Spring\\PSP\\src\\main\\java\\Unidad1\\Boletin1\\EjemploHijo.java";
 
 
-	public void ejecutaProcesoCompila () {
+	public void ejecutaProcesoCompila (String rutaSource,String directorioGenerarClasses) {
 		String[] comando = { "javac", "-d", directorioGenerarClasses, rutaSource + "\\Unidad1\\Boletin1\\Gestiona.java" };
 		
 		ProcessBuilder pb = new ProcessBuilder(comando);
@@ -28,7 +29,7 @@ public class LanzadorEjemplo {
 	}
 	
 	public void ejecutaProcesoJava () {
-		String[] comando = { "java", "-cp", "target/classes","C:\\Users\\alumno\\Desktop\\Spring\\PSP\\target\\classes\\Unidad1\\Boletin1\\Gestiona.class\"" };
+		String[] comando = { "java", "-cp", rutaSource, "hola", "adios"};
 		
 		ProcessBuilder pb = new ProcessBuilder(comando);
 		try {
