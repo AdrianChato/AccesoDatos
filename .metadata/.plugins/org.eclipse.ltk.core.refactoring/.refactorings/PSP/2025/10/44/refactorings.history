@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;PSP/target/pedidos (1).txt&apos; to &apos;pedidos.txt&apos;" description="Rename resource &apos;pedidos (1).txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="target/pedidos (1).txt" name="pedidos.txt" stamp="1761731543976" updateReferences="true"/>
-</session>
