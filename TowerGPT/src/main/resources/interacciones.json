@@ -1,0 +1,42 @@
+[
+  {
+    "tipo": "HUMANO",
+    "peticion": "¿Cuál es la capital de Francia?",
+    "respuesta": "París",
+    "tiempoEjecucion": 5.2,
+    "numValoracionesPositivas": 10,
+    "porcentajeAcierto": 100.0
+  },
+  {
+    "tipo": "IA",
+    "peticion": "Resuelve 5 + 7",
+    "respuesta": "12",
+    "tiempoEjecucion": 0.8,
+    "numValoracionesPositivas": 15,
+    "porcentajeAcierto": 100.0
+  },
+  {
+    "tipo": "HUMANO",
+    "peticion": "Explica qué es la fotosíntesis",
+    "respuesta": "Proceso por el cual las plantas producen energía usando luz solar",
+    "tiempoEjecucion": 8.5,
+    "numValoracionesPositivas": 8,
+    "porcentajeAcierto": 90.0
+  },
+  {
+    "tipo": "IA",
+    "peticion": "Define algoritmo",
+    "respuesta": "Conjunto de pasos para resolver un problema",
+    "tiempoEjecucion": 1.2,
+    "numValoracionesPositivas": 12,
+    "porcentajeAcierto": 95.0
+  },
+  {
+    "tipo": "HUMANO",
+    "peticion": "Traduce 'Hello' al español",
+    "respuesta": "Hola",
+    "tiempoEjecucion": 2.0,
+    "numValoracionesPositivas": 5,
+    "porcentajeAcierto": 100.0
+  }
+]
