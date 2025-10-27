@@ -2,24 +2,25 @@ package Unidad1.Boletin1;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-public class ContadorPalabrasPSP {
+public class Hijo {
 	
-
-	private static final Logger logger =LogManager.getLogger(ContadorPalabrasPSP.class);
 	private static final String rutar ="src/main/resources/";
-	public ContadorPalabrasPSP( ) {
+	public Hijo( ) {
 		super();
 		
 	}
-
+	public static void main(String[] args) throws FileNotFoundException {
+		System.out.println("esto es el hijo " + 7);
+		//throw new FileNotFoundException();
+		/*String ruta = rutar+ args[0];
+		String palabra = args[1];
+		ContadorPalabrasPSP c = new ContadorPalabrasPSP();
+		System.out.println(c.contar(ruta, palabra));
+		System.out.println(4);*/
+	}
 	public int contar(String ruta, String palabra) throws FileNotFoundException {
 		Scanner sc = null;
 		FileReader f = new FileReader(ruta);
@@ -35,12 +36,5 @@ public class ContadorPalabrasPSP {
 			}
 		}
 		return contador;
-	}
-	public static void main(String[] args) throws FileNotFoundException {
-		String ruta = rutar+ args[0];
-		String palabra = args[1];
-		ContadorPalabrasPSP c = new ContadorPalabrasPSP();
-		System.out.println(c.contar(ruta, palabra));
-		System.out.println(4);
 	}
 }

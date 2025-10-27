@@ -1,5 +1,7 @@
 package Unidad1.Boletin1;
 
+import java.io.InputStream;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,6 +21,7 @@ public class LanzadorContadorPalabra {
 	public static void main(String[] args) {
 		LanzadorContadorPalabra l = new LanzadorContadorPalabra();
 		l.lanzar(rutarclase, rutarfichero);
+		
 				
 	}
 
