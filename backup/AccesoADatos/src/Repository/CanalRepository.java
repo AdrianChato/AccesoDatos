@@ -1,0 +1,21 @@
+package Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Model.Canal;
+
+public class CanalRepository {
+
+	private List <Canal> canales;
+
+	public CanalRepository() {
+		super();
+		this.canales = new ArrayList<Canal>();
+	}
+	
+	public void AltaCanal (Canal a) {
+		canales.add(a);
+	}
+	
+}

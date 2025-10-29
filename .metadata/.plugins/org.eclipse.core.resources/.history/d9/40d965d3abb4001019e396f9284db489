@@ -1,0 +1,31 @@
+package Simulacion;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class LogisticaAmazon {
+
+	Scanner in = null;
+	public int cuentaPalabraEnFichero(String ruta, String palabra) throws IOException {
+		FileReader fr = new FileReader(ruta);
+		Scanner in = new Scanner(fr);
+		int contador = 0;
+		while (in.hasNextLine()) {
+			String linea = in.nextLine();
+			String[] partes = linea.split(" ");
+			for (String p : partes) {
+				if (p.equalsIgnoreCase(palabra)) {
+					contador++;
+					FileWriter fichero;
+					fichero = new FileWriter(ruta);
+				}
+			}
+		}
+		if (in != null) {
+			in.close();
+		}
+		return contador;
+	}
+}

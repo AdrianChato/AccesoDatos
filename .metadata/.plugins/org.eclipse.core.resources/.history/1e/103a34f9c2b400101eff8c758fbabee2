@@ -1,0 +1,20 @@
+package Unidad1.Controlador;
+
+import Unidad1.Modelo.Empleado;
+import Unidad1.XML.XMLDomAbstract;
+
+public class ControlaXML {
+
+	public static void main(String[] args) {
+
+		XMLDomAbstract xmlEmpleado = new XMLDomAbstract(); 
+		try {
+			Empleado e = xmlEmpleado.leerEmpleadoDesdeXML("empleado.xml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

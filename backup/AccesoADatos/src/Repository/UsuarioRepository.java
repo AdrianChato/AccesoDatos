@@ -1,0 +1,30 @@
+package Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Model.Usuario;
+
+public class UsuarioRepository {
+
+	private List <Usuario> usuarios;
+
+	public UsuarioRepository() {
+		super();
+		this.usuarios = new ArrayList<Usuario>();
+	}
+	
+	public void AltaUsuario (Usuario u) {
+		usuarios.add(u);
+	}
+
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+	
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Unidad1.ejemplo.File&apos; to &apos;FileNuevo&apos;&#x0D;&#x0A;- Original project: &apos;AccesoADatosMaven&apos;&#x0D;&#x0A;- Original element: &apos;Unidad1.ejemplo.File&apos;&#x0D;&#x0A;- Renamed element: &apos;Unidad1.ejemplo.FileNuevo&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;File&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;Unidad1.ejemplo{File.java[File" matchStrategy="1" name="FileNuevo" qualified="false" references="true" similarDeclarations="false" stamp="1759827192060" textual="false" version="1.0"/>
+</session>

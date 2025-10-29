@@ -1,0 +1,10 @@
+package Simulacion;
+
+public class PadreLogistica {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
