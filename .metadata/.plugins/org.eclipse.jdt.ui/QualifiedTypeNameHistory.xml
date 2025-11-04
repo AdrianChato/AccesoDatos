@@ -35,8 +35,6 @@
     <fullyQualifiedTypeName name="java.util.Locale"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="Unidad1.ejemplo.Utiles.UtilidadesPokemonCsv"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
     <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
@@ -46,4 +44,9 @@
     <fullyQualifiedTypeName name="java.util.logging.LogManager"/>
     <fullyQualifiedTypeName name="Unidad1.XML.XMLDomAbstract"/>
     <fullyQualifiedTypeName name="Unidad1.Modelo.Empleado"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
+    <fullyQualifiedTypeName name="BoletinXML.DOM.XMLDomPeliculas"/>
+    <fullyQualifiedTypeName name="BoletinXML.Repositorio.RepositorioPelicula"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
