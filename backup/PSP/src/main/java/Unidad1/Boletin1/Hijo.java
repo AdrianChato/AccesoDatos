@@ -15,11 +15,11 @@ public class Hijo {
 	public static void main(String[] args) throws FileNotFoundException {
 		System.out.println("esto es el hijo " + 7);
 		//throw new FileNotFoundException();
-		/*String ruta = rutar+ args[0];
+		String ruta = rutar+ args[0];
 		String palabra = args[1];
 		ContadorPalabrasPSP c = new ContadorPalabrasPSP();
 		System.out.println(c.contar(ruta, palabra));
-		System.out.println(4);*/
+		System.out.println(4);
 	}
 	public int contar(String ruta, String palabra) throws FileNotFoundException {
 		Scanner sc = null;
