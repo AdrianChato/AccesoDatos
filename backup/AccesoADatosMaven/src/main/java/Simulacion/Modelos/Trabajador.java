@@ -7,16 +7,13 @@ public class Trabajador {
 
 	private String nombre;
 	private String dni;
-	private String fecha_nacimiento;
+	private String fechaNacimiento;
 	private TipoPersonal tipo;
-	private String id_centro;
-	public Trabajador() {
-		super();
-		this.nombre = nombre;
-		this.dni = dni;
-		this.fecha_nacimiento = fecha_nacimiento;
-		this.tipo = tipo;
-		this.id_centro = id_centro;
+	private String idCentro;
+	@Override
+	public String toString() {
+		return "Trabajador [nombre=" + nombre + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", tipo="
+				+ tipo + ", idCentro=" + idCentro + "]";
 	}
 	public String getNombre() {
 		return nombre;
@@ -30,11 +27,11 @@ public class Trabajador {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	public String getFecha_nacimiento() {
-		return fecha_nacimiento;
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
 	}
-	public void setFecha_nacimiento(String fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	public TipoPersonal getTipo() {
 		return tipo;
@@ -42,11 +39,11 @@ public class Trabajador {
 	public void setTipo(TipoPersonal tipo) {
 		this.tipo = tipo;
 	}
-	public String getId_centro() {
-		return id_centro;
+	public String getIdCentro() {
+		return idCentro;
 	}
-	public void setId_centro(String id_centro) {
-		this.id_centro = id_centro;
+	public void setIdCentro(String idCentro) {
+		this.idCentro = idCentro;
 	}
 	@Override
 	public int hashCode() {
@@ -62,11 +59,6 @@ public class Trabajador {
 			return false;
 		Trabajador other = (Trabajador) obj;
 		return Objects.equals(dni, other.dni);
-	}
-	@Override
-	public String toString() {
-		return "Trabajador [nombre=" + nombre + ", dni=" + dni + ", fecha_nacimiento=" + fecha_nacimiento + ", tipo="
-				+ tipo + ", id_centro=" + id_centro + "]";
 	}
 	
 	

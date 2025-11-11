@@ -19,102 +19,127 @@ import org.w3c.dom.NodeList;
 import Simulacion.Modelos.CentroLogistico;
 import Simulacion.Modelos.TipoPersonal;
 import Simulacion.Modelos.Trabajador;
-import Unidad1.Modelo.Empleado;
+
 
 public class XMLDomBancoDeAlimentos {
-	private static final Logger logger = LogManager.getLogger(XMLDomBancoDeAlimentos.class);
-	private static final String rutaResources = "src\\main\\resources\\";
 
+    private static final Logger logger = LogManager.getLogger(XMLDomBancoDeAlimentos.class);
+    private static final String rutaResources = "src/main/resources/";
 
-	private  CentroLogistico getCentroFromElement(Element elemento) //unico que cambia
-	{
-		CentroLogistico e = new CentroLogistico();
-			String nombre = elemento.getElementsByTagName("Nombre").item(0).getTextContent();
-			int comedores = Integer.parseInt(elemento.getElementsByTagName("ComedoresAbastecidos").item(0).getTextContent());
-			String ciudad = elemento.getElementsByTagName("Ciudad").item(0).getTextContent();
-			String id = elemento.getAttribute("ID"); // La etiqueta empleado tiene el atributo identificador
-			e.setCiudad(ciudad);
-			e.setComedores(comedores);
-			e.setNombre(nombre);
-			e.setId(id);
-			return e;
-		}
-	
-	private Document getDocumentFromXML(String nombrefichero) {
-		File file = new File(rutaResources + nombrefichero);
-		Document documento = null;
-		try {
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			documento = dBuilder.parse(file);
+    
+    private Document getDocumentFromXML(String nombrefichero) {
+        File file = new File(rutaResources + nombrefichero);
+        Document documento = null;
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            documento = dBuilder.parse(file);
+            documento.getDocumentElement().normalize(); // Limpieza del XML
+        } catch (Exception e) {
+            logger.error("Error al cargar XML: " + e.getMessage());
+        }
+        return documento;
+    }
 
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
-		return documento;
-	} 
-	
-	/*public Empleado leerEmpleadoDesdeXML(String rutaFichero) throws Exception {
-	       Document doc = getDocumentFromXML(rutaFichero);
-	       // Obtener el elemento raíz (el único <empleado>)
-	       Element elementoEmpleado = doc.getDocumentElement(); //Para uno
-	       // Usar tu método
-	       return getEmpleadoFromElement(elementoEmpleado);
-	   }*/
-	
-	private  Trabajador getTrabajadorFromElement(Element elemento) //unico que cambia
-	{
-		Trabajador e = new Trabajador();
-			String nombre = elemento.getElementsByTagName("Nombre").item(0).getTextContent();
-			String fecha_nacimiento = elemento.getElementsByTagName("FechaNacimiento").item(0).getTextContent();
-			String dni = elemento.getAttribute("DNI"); // La etiqueta empleado tiene el atributo identificador
-			String tipo = elemento.getElementsByTagName("Tipo").item(0).getTextContent().trim();
-			TipoPersonal tipoTrabajador = TipoPersonal.valueOf(tipo.toUpperCase());
-			e.setDni(dni);
-			e.setFecha_nacimiento(fecha_nacimiento);
-			e.setNombre(nombre);
-			e.setTipo(tipoTrabajador);
-			return e;
-		}
-	
-	public Set<CentroLogistico> leerCentrosDesdeXML(String nombreFichero) {
+    
+    private CentroLogistico getCentroFromElement(Element elemento) {
+        CentroLogistico c = new CentroLogistico();
 
-	    Set<CentroLogistico> centros = new HashSet<>();
+        try {
+            String id = elemento.getElementsByTagName("ID").item(0).getTextContent().trim();
+            String nombre = elemento.getElementsByTagName("Nombre").item(0).getTextContent().trim();
+            String ciudad = elemento.getElementsByTagName("Ciudad").item(0).getTextContent().trim();
+            int comedores = Integer.parseInt(
+                    elemento.getElementsByTagName("ComedoresAbastecidos").item(0).getTextContent().trim());
 
-	    try {
-	        Document doc = getDocumentFromXML(nombreFichero);
-	        NodeList listaCentros = doc.getElementsByTagName("CentroLogistico");
+            c.setId(id);
+            c.setNombre(nombre);
+            c.setCiudad(ciudad);
+            c.setComedores(comedores);
 
-	        for (int i = 0; i < listaCentros.getLength(); i++) {
-	            Element elementoCentro = (Element) listaCentros.item(i);
-	            CentroLogistico centro = getCentroFromElement(elementoCentro);
+        } catch (Exception e) {
+            logger.error("Error al procesar un centro logístico: {}", e.getMessage());
+        }
 
-	            // Leer los trabajadores dentro del centro
-	            NodeList listaTrabajadores = elementoCentro.getElementsByTagName("Trabajador");
-	            List<Trabajador> trabajadores = new ArrayList<>();
+        return c;
+    }
 
-	            for (int j = 0; j < listaTrabajadores.getLength(); j++) {
-	                Element elementoTrabajador = (Element) listaTrabajadores.item(j);
-	                Trabajador trabajador = getTrabajadorFromElement(elementoTrabajador);
-	                trabajadores.add(trabajador);
-	            }
+    /**
+     * Convierte un elemento XML <Trabajador> en un objeto Trabajador.
+     */
+    private Trabajador getTrabajadorFromElement(Element elemento, String idCentro) {
+        Trabajador t = new Trabajador();
 
-	            // Asignar lista de trabajadores al centro
-	            centro.setPersonal(trabajadores);
-	            centros.add(centro);
-	        }
+        try {
+            String nombre = elemento.getElementsByTagName("Nombre").item(0).getTextContent().trim();
+            String dni = elemento.getElementsByTagName("DNI").item(0).getTextContent().trim();
+            String fecha = elemento.getElementsByTagName("FechaNacimiento").item(0).getTextContent().trim();
+            String tipo = elemento.getElementsByTagName("Tipo").item(0).getTextContent().trim().toUpperCase();
 
-	        logger.info("Centros cargados: " + centros.size());
+            TipoPersonal tipoPersonal = tipo.equals("ASALARIADO")
+                    ? TipoPersonal.ASALARIADO
+                    : TipoPersonal.VOLUNTARIO;
 
-	    } catch (Exception e) {
-	        logger.error("Error al leer los centros: " + e.getMessage());
-	    }
+            t.setNombre(nombre);
+            t.setDni(dni);
+            t.setFechaNacimiento(fecha);
+            t.setTipo(tipoPersonal);
+            t.setIdCentro(idCentro); // Relacionamos con el centro actual
 
-	    return centros;
-	}
+        } catch (Exception e) {
+            logger.error("Error al procesar un trabajador: {}", e.getMessage());
+        }
 
+        return t;
+    }
 
+    /**
+     * Lee todos los centros logísticos y sus trabajadores desde el XML.
+     */
+    public Set<CentroLogistico> leerCentrosDesdeXML(String nombreFichero) {
 
-	
+        Set<CentroLogistico> centros = new HashSet<>();
+
+        try {
+            Document doc = getDocumentFromXML(nombreFichero);
+            if (doc == null) {
+                logger.error("El documento XML no pudo ser cargado. Revisa la ruta o el formato del archivo.");
+                return centros;
+            }
+
+            NodeList listaCentros = doc.getElementsByTagName("CentroLogistico");
+
+            for (int i = 0; i < listaCentros.getLength(); i++) {
+                Node nodoCentro = listaCentros.item(i);
+
+                if (nodoCentro.getNodeType() == Node.ELEMENT_NODE) {
+                    Element elementoCentro = (Element) nodoCentro;
+                    CentroLogistico centro = getCentroFromElement(elementoCentro);
+
+                    // Leer los trabajadores asociados
+                    NodeList listaTrabajadores = elementoCentro.getElementsByTagName("Trabajador");
+                    List<Trabajador> trabajadores = new ArrayList<>();
+
+                    for (int j = 0; j < listaTrabajadores.getLength(); j++) {
+                        Node nodoTrabajador = listaTrabajadores.item(j);
+                        if (nodoTrabajador.getNodeType() == Node.ELEMENT_NODE) {
+                            Element elementoTrabajador = (Element) nodoTrabajador;
+                            Trabajador trabajador = getTrabajadorFromElement(elementoTrabajador, centro.getId());
+                            trabajadores.add(trabajador);
+                        }
+                    }
+
+                    centro.setPersonal(trabajadores);
+                    centros.add(centro);
+                }
+            }
+
+            logger.info("Centros cargados desde XML: {}", centros.size());
+
+        } catch (Exception e) {
+            logger.error("Error al leer los centros desde el XML '{}': {}", nombreFichero, e.getMessage());
+        }
+
+        return centros;
+    }
 }
-
